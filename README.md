@@ -44,11 +44,8 @@ STA
 ![image](https://github.com/vivek8904/pes_pd/assets/130572147/817cdee3-fa38-4c43-99ec-0de16fe6d599)
 
 ## Library Binding and Placement
-![image](https://github.com/vivek8904/pes_pd/assets/130572147/d28a2dac-7fa1-497b-9665-eaa46c474367)
 
-![image](https://github.com/vivek8904/pes_pd/assets/130572147/74de4111-04e5-42aa-b1b5-14c89f90a8b1)
-
-## Cell Design Flow
+![image](https://github.com/vivek8904/pes_pd/assets/130572147/f6f42a19-1c75-447f-a4b9-4e3a8e6a38da)
 
 
 # day 3 - Design Library Cell
