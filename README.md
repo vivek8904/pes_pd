@@ -39,7 +39,8 @@ STA
 
 # Day 2-Chip Foorplanning and Synthesis
 
-*** run_floorplan ***
+``` run_floorplan ```
+
 ![image](https://github.com/vivek8904/pes_pd/assets/130572147/817cdee3-fa38-4c43-99ec-0de16fe6d599)
 
 ## Library Binding and Placement
