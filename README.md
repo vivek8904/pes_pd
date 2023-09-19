@@ -238,7 +238,6 @@ Select Full inverter layout. Then
 
 ![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/36c93dc8-6c1e-4ac4-9eac-f2c7a001b82a)
 
-![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/e58613be-86ee-4248-8298-ef002274429b)
 
 The above file has details of inverter netlist but the sources and their values are not specified. So we have to modify the file.
 
@@ -252,8 +251,6 @@ The above file has details of inverter netlist but the sources and their values 
 ![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/1fd94afe-3a40-4269-92ed-d7c46f248417)
 
 ## Modified Spice netlist
-
-![Screenshot from 2023-09-14 17-25-22](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/21be1cbb-da31-4409-bf53-a3a80f11ac97)
 
 To run the spice netlist, run ```ngspice sky130_inv.spice``` and ```plot y vs time a```
 
