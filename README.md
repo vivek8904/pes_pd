@@ -1,32 +1,28 @@
 # Day 1 - Inception of OpenSource EDA ,OPENLANE and SKY130 PDK
 
 ![image](https://github.com/vivek8904/pes_pd/assets/130572147/3deab4a6-6194-4cc9-80b5-911c3dcf9ab1)
-- Digital ASIC Design - 
-- PDK - 
-- Open PDK - 
-- Open world digital asic design
+- Digital ASIC Design : Application-Specific Integrated Circuit (ASIC) design involves creating custom integrated circuits tailored to perform specific functions within electronic devices. These circuits are designed for a particular application
+- PDK : PDK stands for Process Design Kit, and it's a critical component in semiconductor design, especially in the realm of ASIC and integrated circuit (IC) design. PDKs provide the necessary information and tools for designing and simulating circuits using a specific semiconductor fabrication process offered by a foundry.
+
 
 ## Simplified RTL to GDS flow
 ![image](https://github.com/vivek8904/pes_pd/assets/130572147/cdfbfba6-8703-4e40-8158-dfc29d9a793f)
 
-- Synthesis
-- Floor and Power Planning
-- Placement
-- Clock Tree Synthesis
-Routing
-Sign Off
+- Synthesis : RTL code is synthesized into a gate-level netlist, optimizing for area, power, and timing
+- Floor and Power Planning : Define the chip's area and arrangement of major functional blocks.
+- Placement : Position individual gates and standard cells optimally within the predefined areas.
+- Clock Tree Synthesis : Design a clock distribution network to ensure synchronous clock signals.
+- Routing : Establish interconnections while adhering to design rules, optimizing for signal integrity and timing.
 
 ## Introduction to OpenLane and Strive Chipsets
 
-Strive SoC Family
+
 **OpenLane ASIC FLow**
 ![image](https://github.com/vivek8904/pes_pd/assets/130572147/72004c00-fa73-4fc4-aeed-5249ff95ce36)
-OpenLane regression testing
-Design For Test
-Physical Implementation
-Logic Equivalence Check
-Dealing with antenna rules and regulations
-STA
+
+- Design For Test : This phase involves creating the RTL description of the ASIC using hardware description languages (HDL) such as VHDL or Verilog.
+- Physical Implementation :Perform a series of checks including DRC, LVS, and electrical rule checks (ERC).
+- STA(Static timing Analysis) : Analyze timing paths to ensure setup and hold time constraints are met.
 
 ## Labwork
 ![image](https://github.com/vivek8904/pes_pd/assets/130572147/fd3e9fba-0d37-4a52-8740-c1aa5e51daac)
@@ -42,6 +38,9 @@ STA
 
 ``` run_floorplan ```
 
+To view the layout of the floorplan, use the command
+```magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &```
+
 ![image](https://github.com/vivek8904/pes_pd/assets/130572147/817cdee3-fa38-4c43-99ec-0de16fe6d599)
 
 ## Library Binding and Placement
@@ -49,6 +48,44 @@ STA
 
 ![image](https://github.com/vivek8904/pes_pd/assets/130572147/e8e7a543-02ef-40bd-af8f-c27da9591878)
 
+## Cell Design Flow
+
+Cell design is done in 3 parts:
+
+1. **Inputs** - PDKs (Process design kits), DRC & LVS rules, SPICE models, library & user-defined specs.
+2. **Design Steps** - Design steps of cell design involves Circuit Design, Layout Design, Characterization. The software GUNA used for characterization. The characterization can be classified as Timing characterization, Power characterization and Noise characterization.
+3. **Outputs** - Outputs of the Design are CDL (Circuit Description Language), GDSII, LEF, extracted Spice netlist (.cir), timing, noise, power.libs, function.
+
+### Standard cell Charachterization Flow
+
+Standard Cell Libraries consist of cells with different functionality/drive strengths. These cells need to be characterized by liberty files to be used by synthesis tools to determine optimal circuit arrangement. The open-source software GUNA is used for characterization.
+Characterization is a well-defined flow consisting of the following steps:
+
+- Link Model File of CMOS containing property definitions
+- Specify process corner(s) for the cell to be characterized
+- Specify cell delay and slew thresholds percentages
+- Specify timing and power tables
+- Read the parasitic extracted netlist
+- Apply input or stimulus
+- Provide necessary simulation commands
+
+### General Timing characterization parameters
+
+#### Timing threshold definitions
+
+- ```slew_low_rise_thr``` - 20% from bottom power supply when the signal is rising
+- ```slew_high_rise_thr``` - 20% from top power supply when the signal is rising
+- ```slew_low_fall_thr``` - 20% from bottom power supply when the signal is falling
+- ```slew_high_fall_thr``` - 20% from top power supply when the signal is falling
+- ```in_rise_thr``` - 50% point on the rising edge of input
+- ```in_fall_thr``` - 50% point on the falling edge of input
+- ```out_rise_thr``` - 50% point on the rising edge of ouput
+- ```out_fall_thr``` - 50% point on the falling edge of ouput
+
+These are the main parameters that we use to calculate factors such as propogation delay and transition time
+
+- ```propogation delay ``` - time(out_*_thr) - time(in_*_thr)
+- ```Transition time``` - time(slew_high_rise_thr) - time(slew_low_rise_thr)
 
 # day 3 - Design Library Cell
 
