@@ -36,7 +36,9 @@
 
 # Day 2-Chip Foorplanning and Synthesis
 
-Floorplanning is a fundamental step in the physical design of integrated circuits, including Application-Specific Integrated Circuits (ASICs). It involves the strategic arrangement and allocation of major functional blocks, standard cells, input/output (IO) pads, power distribution, clock distribution, and other critical elements on the chip's surface. The main objectives of floorplanning are to optimize chip area utilization, minimize wirelengths, enhance performance, manage power distribution, and meet design constraints
+- Floorplanning is a fundamental step in the physical design of integrated circuits, including Application-Specific Integrated Circuits (ASICs). 
+- It involves the strategic arrangement and allocation of major functional blocks, standard cells, input/output (IO) pads, power distribution, clock distribution, and other critical elements on the chip's surface.
+- The main objectives of floorplanning are to optimize chip area utilization, minimize wirelengths, enhance performance, manage power distribution, and meet design constraints
 
 ``` run_floorplan ```
 
@@ -47,7 +49,8 @@ To view the layout of the floorplan, use the command
 
 ## Library Binding and Placement
 
-Placement in ASIC design involves optimally arranging standard cells, functional blocks, and other components on the chip's surface to minimize area, wirelength, and congestion while meeting design constraints. The process begins with an initial placement followed by global placement to approximate the final configuration
+- Placement in ASIC design involves optimally arranging standard cells, functional blocks, and other components on the chip's surface to minimize area, wirelength, and congestion while meeting design constraints.
+- The process begins with an initial placement followed by global placement to approximate the final configuration
 
 ```run_placement```
 
